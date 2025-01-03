@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MARACIBO</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css'
+    integrity='sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=='
+    crossorigin='anonymous' />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css'
+    integrity='sha512-GmZYQ9SKTnOea030Tbiat0Y+jhnYLIpsGAe6QTnToi8hI2nNbVMETHeK4wm4MuYMQdrc38x+sX77+kVD01eNsQ=='
+    crossorigin='anonymous' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"
+    integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="py-5">
+
+
+
+  <div class="container">
+    <div class="centrato">
+      <h1>
+        MARACAIBO
+      </h1>
+    </div>
+    <div>
+      <div class="centrato py-3">
+        <h2 id="display-points" class="text-center"></h2>
+      </div>
+    </div>
+
+
+    <div id="end-game" class="end-game">
+      <canvas class="confetti" id="canvas"></canvas>
+      <button class="btn btn-danger btn-lg" id="btn-restart">ricomincia</button>
+    </div>
+
+
+    <div id="stage">
+      <div class="d-flex justify-content-between flex-column flex-lg-row">
+        <div class="wrapper-points mb-5">
+          <div class="MAL-tot-punti">
+            <p id="points-a" class="text-center">0</p>
+          </div>
+          <div class="box">
+            <h2 class="title-box">MALAK</h2>
+            <div id="list-a" class="table"></div>
+
+          </div>
+          <div class="punti-controller d-flex">
+            <select id="select-a" class="form-select me-2" aria-label="Default select example">
+              <option value="" selected>ho vinto/perso</option>
+            </select>
+            <button id="add-a" class="add-punti btn btn-outline-warning">aggungi</button>
+          </div>
+        </div>
+        <div class="wrapper-points">
+          <div class="MAL-tot-punti">
+            <p id="points-b" class="text-center">0</p>
+          </div>
+          <div class="box">
+            <h2 class="title-box">MELIKA</h2>
+            <div id="list-b" class="table"> </div>
+
+          </div>
+          <div class="punti-controller d-flex">
+            <select id="select-b" class="form-select me-2" aria-label="Default select example">
+              <option value="" selected>ho vinto/perso</option>
+            </select>
+            <button id="add-b" class="add-punti btn btn-outline-warning">aggungi</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="">
+        <div class="d-flex flex-wrap justify-content-center mb-5">
+          <div class="ludo">
+            <h3>LUDO</h3>
+            <p>normale = +2 <br> schiacciante = + 3</p>
+          </div>
+          <div class="ludo">
+            <h3>LOTTA</h3>
+            <p>pizza suprema = +2 <br> testata = +3 <br> calcio rotante = +4 <br> ko = 2 schiaffi</p>
+          </div>
+          <div class="ludo">
+            <h3>QUIZ</h3>
+            <p>a caso = +2 <br> fun fact = +3 <br> geografia = +3 <br> storia = +4 </p>
+            </class=>
+          </div>
+          <div class="ludo">
+            <h3>ALTRO</h3>
+            <p>+2 <br> supremo = +5 <br> sport = +3</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="centrato">
+        <div class="penitenze">
+          <h3>PENITENZE lotta</h3>
+          <p>ko = 2 schiaffi <br> rottura di arti/ossa = testata potente sul naso <br> testata sul naso a melika = 5
+            schiaffi e -3 <br> solletico = -1</p>
+        </div>
+        <div class="penitenze">
+          <h3>PENITENZE ludo</h3>
+          <p>distrazioni normali = -1 <br> altre distrazioni = a discrezione della vittima</p>
+        </div>
+        <div class="penitenze">
+          <h3>IMBROGLI</h3>
+          <p>-10 e parecchio disonore <br> ecco</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/confetti.js"></script>
+  <script type="module" src="./js/script.js"></script>
+
+
+</body>
+
+</html>
