@@ -103,3 +103,9 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 40px;
+  }
+}
