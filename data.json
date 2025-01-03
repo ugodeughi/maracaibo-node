@@ -1,5 +1,11 @@
 [
   {
+    "value": 2,
+    "label": "PIZZA SUPREMA",
+    "type": "b",
+    "date": 1735920188858
+  },
+  {
     "value": 3,
     "label": "LUDO +3",
     "type": "a",
@@ -8,7 +14,7 @@
   {
     "value": 2,
     "label": "PIZZA SUPREMA",
-    "type": "b",
-    "date": 1735920188858
+    "type": "a",
+    "date": 1735920718418
   }
 ]
