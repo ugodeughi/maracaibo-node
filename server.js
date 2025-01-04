@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
+// Percorso del file persistente sul volume montato
+const DATA_FILE_PATH = path.join('/mnt/data', 'data.json');
+
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
@@ -18,11 +21,11 @@ app.get('/', (req, res) => {
 // Define the route for '/data'
 app.post('/data', (req, res) => {
   const jsonData = req.body;
-  fs.writeFile('data.json', JSON.stringify(jsonData, null, 2), (err) => {
+  fs.writeFile(DATA_FILE_PATH, JSON.stringify(jsonData, null, 2), (err) => {
     if (err) {
       return res.status(500).send('Error writing file');
     }
-    fs.readFile('data.json', 'utf8', (err, data) => {
+    fs.readFile(DATA_FILE_PATH, 'utf8', (err, data) => {
       if (err) {
         return res.status(500).send('Error reading file');
       }
@@ -32,18 +35,17 @@ app.post('/data', (req, res) => {
 });
 
 // Ensure data.json exists with default content if it doesn't
-
 app.get('/data', (req, res) => {
-  fs.access('data.json', fs.constants.F_OK, (err) => {
+  fs.access(DATA_FILE_PATH, fs.constants.F_OK, (err) => {
     if (err) {
-      fs.writeFile('data.json', '[]', (err) => {
+      fs.writeFile(DATA_FILE_PATH, '[]', (err) => {
         if (err) {
           console.error('Error creating data.json with default content');
         }
       });
     }
   });
-  fs.readFile('data.json', 'utf8', (err, data) => {
+  fs.readFile(DATA_FILE_PATH, 'utf8', (err, data) => {
     if (err) {
       return res.status(500).send('Error reading file');
     }
