@@ -17,3 +17,7 @@ memory_mb = 1_024
 
 [build]
 dockerfile = "Dockerfile"
+
+[[mounts]]
+source = "data"
+destination = "/mnt/data"
