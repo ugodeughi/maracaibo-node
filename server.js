@@ -31,7 +31,18 @@ app.post('/data', (req, res) => {
   });
 });
 
+// Ensure data.json exists with default content if it doesn't
+
 app.get('/data', (req, res) => {
+  fs.access('data.json', fs.constants.F_OK, (err) => {
+    if (err) {
+      fs.writeFile('data.json', '[]', (err) => {
+        if (err) {
+          console.error('Error creating data.json with default content');
+        }
+      });
+    }
+  });
   fs.readFile('data.json', 'utf8', (err, data) => {
     if (err) {
       return res.status(500).send('Error reading file');
